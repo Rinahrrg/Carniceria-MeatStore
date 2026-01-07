@@ -1,0 +1,440 @@
+/* ========== RESETEO BÁSICO ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fffafa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ========== ENCABEZADO ========== */
+header {
+  background-color: #b30000;
+  color: #fffdd0;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+header img {
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+/* ========== NAVEGACIÓN ========== */
+nav {
+  background-color: #8b0000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem 2rem;
+}
+
+nav a,
+.dropbtn {
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.3s;
+  font-family: inherit;
+  font-size: 1rem;
+  display: inline-block;
+  text-decoration: none;
+}
+
+
+
+/* Asegura que dropdown esté alineado igual que los otros */
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #8b0000;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  z-index: 1;
+  flex-direction: column;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background-color: #e60000;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+/* ========== SECCIONES ========== */
+section {
+  display: none;
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+section.activa {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section h2 {
+  color: #8b0000;
+  margin-bottom: 1rem;
+}
+
+/* ========== HERO SECTION ========== */
+.hero-section {
+  background: url('carniceria.jpg') center/cover no-repeat;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: white;
+  position: relative;
+  border-bottom: 4px solid #a00000;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  border-radius: 0 0 12px 12px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero-content h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn-hero {
+  background-color: #ffcc00;
+  color: #a00000;
+  padding: 0.8rem 1.6rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.btn-hero:hover {
+  background-color: #ffe066;
+}
+
+.highlight {
+  color: #ffcc00;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+
+.card img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card img:hover {
+  transform: scale(1.05);
+}
+
+.card p {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #444;
+}
+
+.hero-banner {
+  position: relative;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.hero-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.hero-banner .overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+.hero-banner h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-banner p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn-hero {
+  background-color: #ffcc00;
+  color: #8b0000;
+  padding: 0.8rem 1.6rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+.btn-hero:hover {
+  background-color: #ffe066;
+}
+
+
+#productos h3 {
+  margin-top: 40px;
+  font-size: 1.5em;
+  color: #B22222;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+/* ========== MARCAS ========== */
+.marcas-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-marcas {
+  width: 80px;
+  margin: 0.5rem;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background-color: #b30000;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* ========== BOTONES DE IDIOMA ========== */
+.lang-buttons {
+  text-align: center;
+  margin: 2rem;
+}
+
+.lang-buttons button {
+  font-size: 1.1rem;
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #8b0000;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  left: 20px; /* Cambiado de right a left */
+  background-color: #25d366;
+  border-radius: 50%;
+  padding: 18px;
+  z-index: 1000;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-icon {
+  width: 40px;
+  height: 40px;
+}
+
+@media (max-width: 600px) {
+  .whatsapp-float {
+    width: 60px;
+    height: 60px;
+    padding: 15px;
+    bottom: 15px;
+    left: 15px;
+  }
+
+  .whatsapp-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  section {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .lang-buttons {
+    flex-direction: column;
+    margin: 1rem auto;
+  }
+
+  .lang-buttons button {
+    margin: 0.5rem;
+    width: 80%;
+  }
+}
+
+section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+section.activa {
+  display: block;
+  opacity: 1;
+}
+
+.bienvenida {
+  background: #fff;
+  padding: 2rem;
+  margin: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.info-extra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem;
+  justify-content: center;
+}
+
+.info-extra > div {
+  flex: 1 1 300px;
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.opiniones ul {
+  list-style: none;
+  padding: 0;
+}
+
+.opiniones li {
+  margin-bottom: 0.5rem;
+}
+
+.mapa {
+  margin: 2rem 1rem;
+  text-align: center;
+}

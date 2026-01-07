@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carnicentro #1</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fffafa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Encabezado */
+    header {
+      background-color: #b30000;
+      color: #fffdd0;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header img {
+      width: 100px;
+      border-radius: 50%;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Navegación */
+    nav {
+      background-color: #8b0000;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #e60000;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #8b0000;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      border-radius: 4px;
+      z-index: 1;
+      flex-direction: column;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      white-space: nowrap;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #e60000;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: flex;
+    }
+
+    section {
+      display: none;
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    section.activa {
+      display: block;
+    }
+
+    section h2 {
+      color: #8b0000;
+      margin-bottom: 1rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .card {
+      flex: 1 1 150px;
+      max-width: 180px;
+      text-align: center;
+      background: #ffecec;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .card p {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    footer {
+      background-color: #b30000;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    .lang-buttons {
+      text-align: center;
+      margin: 2rem;
+    }
+
+    .lang-buttons button {
+      font-size: 1.1rem;
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #8b0000;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #25d366;
+      border-radius: 50%;
+      padding: 18px;
+      z-index: 1000;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 70px;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    .whatsapp-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .whatsapp-float {
+        width: 60px;
+        height: 60px;
+        padding: 15px;
+        bottom: 15px;
+        left: 15px;
+      }
+
+      .whatsapp-icon {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.jpg" alt="Logo Carnicentro" />
+    <h1>Carnicentro #1</h1>
+    <p>Calidad y frescura</p>
+  </header>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <div class="dropdown">
+      <a href="#productos" class="dropbtn">Productos</a>
+      <div class="dropdown-content">
+        <a href="#pollo">Pollo</a>
+        <a href="#res">Res</a>
+        <a href="#cerdo">Cerdo</a>
+        <a href="#embutidos">Embutidos</a>
+      </div>
+    </div>
+    <a href="#contactos">Contactos</a>
+    <a href="#marcas">Marcas</a>
+    <a href="#promociones">Promociones</a>
+    <a href="#encargos">Encargos</a>
+  </nav>
+
+ <section id="inicio" class="activa">
+  <div class="bienvenida">
+    <h2>Bienvenido a Carnicentro #1</h2>
+    <p>Carne fresca, calidad garantizada y servicio al cliente personalizado en el corazón de Jinotepe.</p>
+    <a href="#productos">Ver productos</a>
+  </div>
+
+  <div class="info-extra">
+    <div class="mision">
+      <h3>Misión</h3>
+      <p>Proveer carne de la más alta calidad, garantizando frescura, higiene y excelente atención.</p>
+    </div>
+    <div class="vision">
+      <h3>Visión</h3>
+      <p>Ser el carnicentro líder en Jinotepe, reconocido por su compromiso con la comunidad y el bienestar alimenticio.</p>
+    </div>
+    <div class="opiniones">
+      <h3>Opiniones de clientes</h3>
+      <ul>
+        <li>⭐ "Excelente carne y muy buen servicio" – Ana G.</li>
+        <li>⭐ "Siempre frescos y confiables" – Juan P.</li>
+        <li>⭐ "La mejor carne del mercado" – Marta S.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mapa">
+    <h3>¿Dónde estamos?</h3>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.750902032782!2d-86.202987!3d11.860123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f740dcb93f9bd8d%3A0x5e8b2a6f9484a54a!2sJinotepe%2C%20Carazo!5e0!3m2!1ses!2sni!4v1623780785534!5m2!1ses!2sni"
+      width="100%"
+      height="300"
+      style="border:0; border-radius: 10px;"
+      allowfullscreen=""
+      loading="lazy"
+    ></iframe>
+  </div>
+</section>
+
+
+<!-- 🔽 Mejora a la sección Promociones -->
+<section id="promociones">
+  <h2>Promociones</h2>
+  <p>🎉 ¡10% de descuento en chuletas de cerdo!</p>
+  <p>🐔 Combo familiar de pollo a precio especial</p>
+
+  <div style="margin-top: 1.5rem;">
+    <h3 style="color: #8b0000;">Encuéntranos aquí</h3>
+    <iframe src="https://www.google.com/maps?q=Bancentro+1+cuadra+y+media+al+este,+Jinotepe,+Carazo&output=embed" width="100%" height="300" style="border:0; border-radius: 12px;" allowfullscreen loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- 🔽 Mejora a la sección Contactos -->
+<section id="contactos">
+  <h2>Contactos</h2>
+  <p><strong>Teléfonos:</strong> 87358902 / 89469945</p>
+  <p><strong>WhatsApp:</strong> 87358902</p>
+  <p><strong>Dirección:</strong> Bancentro 1 cuadra y media al este. Jinotepe, Carazo</p>
+  <p><strong>Horario de Atención:</strong> Lunes a Sábado, de 7:00 a.m. a 6:00 p.m.</p>
+  <p><strong>¡Entrega gratis para el centro de Jinotepe!</strong></p>
+</section>
+
+  <!-- Sección Productos General (opcional, puedes ocultar si quieres) -->
+  <section id="productos" >
+    <h2>Productos</h2>
+    <p>Por favor, selecciona una categoría en el menú para ver los productos.</p>
+  </section>
+
+  <!-- Secciones por categoría -->
+
+  <section id="pollo" class="categoria-productos">
+    <h2>Pollo</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="pechugaentera.jpg" alt="Pechuga Entera" />
+        <p>Pechuga Entera</p>
+      </div>
+      <div class="card">
+        <img src="pechuga.jpg" alt="Pechuga" />
+        <p>Pechuga</p>
+      </div>
+      <div class="card">
+        <img src="pechugaconala.jpg" alt="Pechuga con Ala" />
+        <p>Pechuga con ala</p>
+      </div>
+      <div class="card">
+        <img src="alas.jpg" alt="Ala de Pollo" />
+        <p>Ala de pollo</p>
+      </div>
+      <div class="card">
+        <img src="muslos.jpg" alt="Pierna de Pollo con Pechuga" />
+        <p>Pierna de pollo con pechuga</p>
+      </div>
+      <div class="card">
+        <img src="pata.jpg" alt="Pierna de Pollo" />
+        <p>Pierna de pollo</p>
+      </div>
+      <div class="card">
+        <img src="muslo1.jpg" alt="Muslo de Pollo" />
+        <p>Muslo de pollo</p>
+      </div>
+      <div class="card">
+        <img src="menudo.jpg" alt="Menudo de Pollo" />
+        <p>Menudo de pollo</p>
+      </div>
+      <div class="card">
+        <img src="higado.jpg" alt="Higado de Pollo" />
+        <p>Higado de pollo</p>
+      </div>
+      <div class="card">
+        <img src="corazon.jpg" alt="Corazón de Pollo" />
+        <p>Corazón de pollo</p>
+      </div>
+      <div class="card">
+        <img src="titiles.jpg" alt="Titiles de Pollo" />
+        <p>Titiles de pollo</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="res" class="categoria-productos">
+    <h2>Carne de Res</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="entraña.jpg" alt="Brocheta, Corbata, Milanesa y Entraña de Res" />
+        <p>Brocheta, Corbata, Milanesa y Entraña</p>
+      </div>
+      <div class="card">
+        <img src="postacorona.jpg" alt="Posta de Corona de Res" />
+        <p>Posta de Corona de Res</p>
+      </div>
+      <div class="card">
+        <img src="postagallina.jpg" alt="Posta de Gallina de Res" />
+        <p>Posta de Gallina de Res</p>
+      </div>
+      <div class="card">
+        <img src="postapecho.jpg" alt=" Posta de Pecho de Res" />
+        <p>Posta de Pecho de Res</p>
+      </div>
+      <div class="card">
+        <img src="manopiedra.jpg" alt=" Mano de Piedra de Res" />
+        <p>Mano de Piedra de Res</p>
+      </div>
+      <div class="card">
+        <img src="brazores.jpg" alt=" Bazo de Res" />
+        <p>Bazo de Res</p>
+      </div>
+      <div class="card">
+        <img src="molida.jpg" alt=" Molida de Res" />
+        <p>Molida de Res</p>
+      </div>
+      <div class="card">
+        <img src="molidapreparada.jpg" alt=" Molida Preparada de Res" />
+        <p>Molida Preparada de Res</p>
+      </div>
+      <div class="card">
+        <img src="higadores.jpg" alt=" Higado de Res" />
+        <p>Higado de Res</p>
+      </div>
+      <div class="card">
+        <img src="corazonres.jpg" alt=" Corazón de Res" />
+        <p>Corazón de Res</p>
+      </div>
+      <div class="card">
+        <img src="nisteck.jpg" alt=" Bisteck de Res" />
+        <p>Bisteck de Res</p>
+      </div>
+      <div class="card">
+        <img src="traceracecina.jpg" alt=" Tracera de Cecina de Res" />
+        <p>Tracera de Cecina de Res</p>
+      </div>
+      <div class="card">
+        <img src="huesoespecial.jpg" alt=" Hueso Especial de Res" />
+        <p>Hueso Especial de Res</p>
+      </div>
+      <div class="card">
+        <img src="huesoyugo.jpg" alt=" Hueso Yugo de Res" />
+        <p>Hueso Yugo de Res</p>
+      </div>
+      <div class="card">
+        <img src="orilla.jpg" alt=" Orilla de Costilla de Res" />
+        <p>Orilla de Costilla de Res</p>
+      </div>
+      <div class="card">
+        <img src="costillalatares.jpg" alt=" Costilla Alta de Res" />
+        <p>Costilla Alta de Res</p>
+      </div>
+      <div class="card">
+        <img src="mondongo.jpg" alt=" Mondongo de Res" />
+        <p>Mondongo de Res</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cerdo" class="categoria-productos">
+    <h2>Carne de Cerdo</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="costillaalta.jpg" alt="Costilla Alta de Cerdo" />
+        <p>Costilla Alta</p>
+      </div>
+      <div class="card">
+        <img src="lomo.jpg" alt="Lomo de cerdo" />
+        <p>Costilla</p>
+      </div>
+      <div class="card">
+        <img src="posta.jpg" alt="Posta de cerdo" />
+        <p>Lomo</p>
+      </div>
+      <div class="card">
+        <img src="hueso.jpg" alt="Hueso de cerdo" />
+        <p>Hueso de cerdo</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="embutidos" class="categoria-productos">
+    <h2>Embutidos</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="embutidos.jpg" alt="Embutidos" />
+        <p>Variedad de Embutidos</p>
+      </div>
+      <div class="card">
+        <img src="embu.jpg" alt="Embutidos" />
+        <p>Embutidos</p>
+      </div>
+      <div class="card">
+        <img src="chorizo.jpg" alt="Chorizo Criollo" />
+        <p>Chorizo Criollo</p>
+      </div>
+      <div class="card">
+        <img src="bacon.jpg" alt="Bacon" />
+        <p>Bacon</p>
+      </div>
+      <div class="card">
+        <img src="peperoni.jpg" alt="Peperoni" />
+        <p>Peperoni</p>
+      </div>
+      <div class="card">
+        <img src="jamon.jpg" alt="Jamón" />
+        <p>Jamón</p>
+      </div>
+      <div class="card">
+        <img src="salsicha.jpg" alt="Salchicha Parrillera" />
+        <p>Salchicha Parrillera</p>
+      </div>
+      <div class="card">
+        <img src="salchicha.jpg" alt="Salchicha" />
+        <p>Salchicha</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="marcas">
+  <h2>Marcas</h2>
+  <div class="cards">
+    <div class="card"><img src="tiptop.jpg" alt="TIP-TOP" /><p>TIP-TOP</p></div>
+    <div class="card"><img src="pollorico.jpg" alt="Pollo Rico" /><p>Pollo Rico</p></div>
+    <div class="card"><img src="delacasa.jpg" alt="De La Casa" /><p>De La Casa</p></div>
+    <div class="card"><img src="delmor.jpg" alt="DELMOR" /><p>DELMOR</p></div>
+    <div class="card"><img src="carnessanmartin.jpg" alt="Carnes San Martín" /><p>Carnes San Martín</p></div>
+    <div class="card"><img src="lala.jpg" alt="LALA" /><p>LALA</p></div>
+    <div class="card"><img src="donpancho.jpg" alt="Don Pancho" /><p>Don Pancho</p></div>
+    <div class="card"><img src="laperfecta.jpg" alt="La Perfecta" /><p>La Perfecta</p></div>
+    <div class="card"><img src="zafran.jpg" alt="Zafrán" /><p>Zafrán</p></div>
+    <div class="card"><img src="delicarnes.jpg" alt="Delicarnes" /><p>Delicarnes</p></div>
+    <div class="card"><img src="badia.jpg" alt="BADIA" /><p>BADIA</p></div>
+    <div class="card"><img src="cainsa.jpg" alt="CAINSA" /><p>CAINSA</p></div>
+    <div class="card"><img src="naturas.jpg" alt="Natura´s" /><p>Natura´s</p></div>
+    <div class="card"><img src="regia.jpg" alt="Regia" /><p>Regia</p></div>
+    <div class="card"><img src="mccormick.jpg" alt="McCormick" /><p>McCormick</p></div>
+    <div class="card"><img src="vigui.jpg" alt="Vigui" /><p>Vigui</p></div>
+    <div class="card"><img src="lizano.jpg" alt="Lizano" /><p>Lizano</p></div>
+    <div class="card"><img src="crunch.jpg" alt="Custom Culinary" /><p>Custom Culinary</p></div>
+    <div class="card"><img src="kerns.jpg" alt="Kern´s" /><p>Kern´s</p></div>
+    <div class="card"><img src="lacosteña.jpg" alt="La Costeña" /><p>La Costeña</p></div>
+    <div class="card"><img src="richly.jpg" alt="Richly" /><p>Richly</p></div>
+    <div class="card"><img src="herdez.jpg" alt="Herdez" /><p>Herdez</p></div>
+    <div class="card"><img src="bravo.jpg" alt="Bravo" /><p>Bravo</p></div>
+  </div>
+</section>
+
+
+  <section id="encargos">
+    <h2>Encargos</h2>
+    <p>Conoce nuestros cortes selectos unicamente disponibles por encargo.</p>
+    <p>Para más información, contactanos a nuestros numeros!</p>
+    <div class="cards">
+      <div class="card">
+        <img src="beef.jpg" alt="Rib Eye" />
+        <p>Rib Eye</p>
+      </div>
+      <div class="card">
+        <img src="filetemignon.jpg" alt="Filete Mignon" />
+        <p>Filete Mignon</p>
+      </div>
+      <div class="card">
+        <img src="churrasco.jpg" alt="Churrasco de Expotación" />
+        <p>Churrasco de Expotación</p>
+      </div>
+      <div class="card">
+        <img src="lengua.jpg" alt="Lengua de Res" />
+        <p>Lengua de Res</p>
+      </div>
+      <div class="card">
+        <img src="tomahawk.jpg" alt="Tomahawk" />
+        <p>Tomahawk</p>
+      </div>
+    </div> 
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Carnicentro #1 - Todos los derechos reservados</p>
+  </footer>
+
+  <div class="lang-buttons">
+    <button onclick="cambiarIdioma('es')">🇪🇸 Español</button>
+    <button onclick="cambiarIdioma('en')">🇺🇸 English</button>
+  </div>
+
+  <!-- ✅ BOTÓN FLOTANTE DE WHATSAPP -->
+  
+  <a href="https://wa.me/50587358902" class="whatsapp-float" target="_blank" title="Contáctanos por WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+</a>
+
+
+  <script>
+    const secciones = document.querySelectorAll("section");
+    function mostrarSeccion(id) {
+      secciones.forEach(sec => sec.classList.remove("activa"));
+      document.getElementById(id).classList.add("activa");
+    }
+    document.querySelectorAll("nav a, .dropdown-content a").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const destino = link.getAttribute("href").substring(1);
+        mostrarSeccion(destino);
+      });
+    });
+    window.onload = () => mostrarSeccion("inicio");
+
+    const textos = {
+      es: {
+        titulo: "Carnicentro #1",
+        bienvenida: "Calidad y frescura",
+        productos: "Productos",
+        contacto: "Contactos"
+      },
+      en: {
+        titulo: "Meat Market #1",
+        bienvenida: "Quality and Freshness",
+        productos: "Products",
+        contacto: "Contact"
+      }
+    };
+
+    function cambiarIdioma(lang) {
+      document.querySelector("header h1").textContent = textos[lang].titulo;
+      document.querySelector("header p").textContent = textos[lang].bienvenida;
+      document.querySelector("nav a[href='#productos']").textContent = textos[lang].productos;
+      document.querySelector("nav a[href='#contactos']").textContent = textos[lang].contacto;
+    }
+  </script>
+</body>
+</html>
